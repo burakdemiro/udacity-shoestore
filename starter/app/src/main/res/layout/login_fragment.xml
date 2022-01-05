@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.login.LoginFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!--I used linearlayout because there are no complex alignments.-->
+    <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/horizontal_margin"
+        android:orientation="vertical"
         android:paddingTop="?attr/actionBarSize">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_username"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edittext_username"
@@ -29,12 +27,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_pass"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/horizontal_margin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_input_username">
+            android:layout_marginTop="@dimen/horizontal_margin">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edittext_password"
@@ -47,27 +42,17 @@
 
         <Button
             android:id="@+id/button_login"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/horizontal_margin"
             android:text="@string/login_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textAllCaps="false"
-            app:layout_constraintTop_toBottomOf="@+id/text_input_pass"
-            app:layout_constraintWidth_percent="0.8" />
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/button_create_acc"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/create_account_button"
-            android:textAllCaps="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_login"
-            app:layout_constraintWidth_percent="0.8" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:textAllCaps="false" />
+    </LinearLayout>
 </layout>

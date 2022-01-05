@@ -4,13 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.login.LoginFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!--I used it because there were no nested layout requirements and complex alignments.-->
+    <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/horizontal_margin"
-        android:paddingTop="?attr/actionBarSize">
-
+        android:paddingTop="?attr/actionBarSize"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView"
@@ -18,11 +19,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/welcome_text_view"
+            android:layout_weight="1"
             android:textAlignment="center"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/text_view_username"
@@ -30,21 +29,15 @@
             android:layout_height="wrap_content"
             android:text="@string/welcome_subtitle_text_view"
             android:textAlignment="center"
-            style="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintBottom_toTopOf="@id/button_login"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView" />
+            android:layout_weight="1"
+            style="@style/TextAppearance.AppCompat.Large"/>
 
         <Button
             android:id="@+id/button_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_gravity="center"
+            android:text="@string/next_button"/>
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>

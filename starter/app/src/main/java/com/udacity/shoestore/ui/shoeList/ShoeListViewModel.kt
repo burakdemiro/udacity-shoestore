@@ -7,8 +7,6 @@ import com.udacity.shoestore.models.Shoe
 
 class ShoeListViewModel : ViewModel() {
 
-    var newShoe: Shoe = Shoe("",0.0,"","", emptyList())
-
     private val _isCloseScreen = MutableLiveData<Boolean>()
     val isCloseScreen: LiveData<Boolean>
             get() = _isCloseScreen
@@ -24,21 +22,21 @@ class ShoeListViewModel : ViewModel() {
     private fun getMockShoeList(): List<Shoe> {
         val mockShoes = mutableListOf<Shoe>()
 
-        mockShoes.add(Shoe("Superstar", 39.0, "Nike", "Iconic Rubber Toe"))
-        mockShoes.add(Shoe("Boost", 41.0, "Adidas", "Built for performance"))
-        mockShoes.add(Shoe("Energy", 34.0, "Kinetix", "For kids faster than light"))
+        mockShoes.add(Shoe("Superstar", "39.0", "Nike", "Iconic Rubber Toe"))
+        mockShoes.add(Shoe("Boost", "41.0", "Adidas", "Built for performance"))
+        mockShoes.add(Shoe("Energy", "34.0", "Kinetix", "For kids faster than light"))
 
         return mockShoes
     }
 
-    fun save() {
+    fun save(name: String, company: String, size: String, description: String) {
         val tempShoes = mutableListOf<Shoe>()
 
         _shoeList.value?.let {
             tempShoes.addAll(it)
         }
 
-        tempShoes.add(newShoe)
+        tempShoes.add(Shoe(name, size, company, description))
 
         _shoeList.value = tempShoes
         _isCloseScreen.value = true
